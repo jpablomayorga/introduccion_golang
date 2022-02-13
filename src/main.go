@@ -32,6 +32,37 @@ func main() {
 	area_cuadrado := base_cuadrado * base_cuadrado
 	fmt.Println(area_cuadrado)
 
-	// Área de un rectángulo
+	// Operadores Aritmeticos
+
+	x := 10
+	y := 50
+
+	// suma
+	result := x + y
+	fmt.Println("Suma:", result)
+
+	//resta
+	result = x - y
+	fmt.Println("Resta:", result)
+
+	// Multiplicacion
+	result = x * y
+	fmt.Println("Multiplicacion:", result)
+
+	// Division
+	result = y / x
+	fmt.Println("Division:", result)
+
+	// Módulo
+	result = y % x
+	fmt.Println("Módulo:", result)
+
+	//incremental
+	x++
+	fmt.Println("Incremental de x", x)
+
+	//decremental
+	y--
+	fmt.Println("Decremental de y", y)
 
 }
