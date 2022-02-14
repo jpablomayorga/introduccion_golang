@@ -2,6 +2,11 @@ package main
 
 import "fmt"
 
+//declaracion y uso de funciones
+func normalFunction(message string) {
+	fmt.Println(message)
+}
+
 func main() {
 	//declaracion de constantes
 	const pi float64 = 3.1416
@@ -65,4 +70,43 @@ func main() {
 	y--
 	fmt.Println("Decremental de y", y)
 
+	//Declaracion de variables
+	helloMessage := "Hello"
+	worldMessage := "World"
+
+	//Println
+	fmt.Println(helloMessage, worldMessage)
+
+	//printf
+	nombre := "Platzi"
+	cursos := 500
+	fmt.Printf("%s tiene más de %d cursos\n", nombre, cursos)
+
+	//sprintf
+	message := fmt.Sprintf("%s tiene más de %d cursos", nombre, cursos)
+	fmt.Println(message)
+
+	//tipo de variable
+	fmt.Printf("helloMessage: %T\n", helloMessage)
+	fmt.Printf("cursos: %T\n", cursos)
+
+	normalFunction("Hola desde funcion")
+	tripleArgument(1, 2, "hola")
+	fmt.Println(doubleValue(1))
+	value1, value2 := doubleReturn(2)
+	fmt.Println("Los valores retornados por la funcion doubleReturn son", value1, value2)
+
+}
+
+func tripleArgument(a, b int, c string) {
+	println(a, b, c)
+}
+
+func doubleValue(a int) int {
+	return a * 2
+}
+
+// cuando necesitemos que se retorne 2 o más valores
+func doubleReturn(a int) (b, d int) {
+	return a, a * 3
 }
