@@ -1,112 +1,69 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"strconv"
+)
 
-//declaracion y uso de funciones
-func normalFunction(message string) {
-	fmt.Println(message)
+func esPar(value int) bool {
+	if module := value % 2; module == 0 {
+		return true
+	}
+	return false
+}
+
+func getLogin(username, password string) {
+	/* Esta función compara el username y el password y verificar si coincide
+	   hacer login de esta manera (username y password en el código), es una muy mala práctica
+	   usualmente los frameworks utilizan librerías para hacer este check
+	   con passwords encriptados desde la base de datos.
+	*/
+	if username == "platzi" && password == "platzi" {
+		fmt.Println("You are logged")
+	} else {
+		fmt.Println("Username or password incorrect")
+	}
 }
 
 func main() {
-	//declaracion de constantes
-	const pi float64 = 3.1416
-	const pi2 = 3.141569845
+	valor1 := 1
+	valor2 := 2
 
-	fmt.Println("pi:", pi)
-	fmt.Println("pi2:", pi2)
+	if valor1 == 1 {
+		fmt.Println("Valor1 es 1")
+	} else {
+		fmt.Println("Valor1 NO es 1")
+	}
 
-	//declaracion de variables enteras
-	base := 12
-	var altura int = 14
-	var area int
-	fmt.Println(base, altura, area)
+	//operador logico AND
+	if valor1 == 1 && valor2 == 2 {
+		fmt.Println("Valor1 es 1 y valor2 es 2, es cierto")
+	} else {
+		fmt.Println("Valor1 es 1 y valor2 es 2, es falso")
+	}
 
-	/* Zero values: valores por defecto que se dan cuando
-	se define una variable pero no se asigna, depende del tipo de variable
-	*/
-	var a int
-	var b float64
-	var c string
-	var d bool
+	//operador logico OR
+	if valor1 == 1 || valor2 == 2 {
+		fmt.Println("Valor1 es 1 o valor2 es 2, es cierto")
+	} else {
+		fmt.Println("Valor1 es 1 y valor2 es 2, es falso")
+	}
 
-	fmt.Println(a, b, c, d)
+	// Convertir texto a número
+	value, err := strconv.Atoi("53")
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Value:", value)
 
-	//Área cuadrado
+	// Evaluar número par e impar
+	fmt.Println(esPar(2))
+	fmt.Println(esPar(3))
 
-	const base_cuadrado = 10
-	area_cuadrado := base_cuadrado * base_cuadrado
-	fmt.Println(area_cuadrado)
+	// Función para hacer login
+	username := "platzi"
+	password := ""
+	getLogin(username, password)
 
-	// Operadores Aritmeticos
-
-	x := 10
-	y := 50
-
-	// suma
-	result := x + y
-	fmt.Println("Suma:", result)
-
-	//resta
-	result = x - y
-	fmt.Println("Resta:", result)
-
-	// Multiplicacion
-	result = x * y
-	fmt.Println("Multiplicacion:", result)
-
-	// Division
-	result = y / x
-	fmt.Println("Division:", result)
-
-	// Módulo
-	result = y % x
-	fmt.Println("Módulo:", result)
-
-	//incremental
-	x++
-	fmt.Println("Incremental de x", x)
-
-	//decremental
-	y--
-	fmt.Println("Decremental de y", y)
-
-	//Declaracion de variables
-	helloMessage := "Hello"
-	worldMessage := "World"
-
-	//Println
-	fmt.Println(helloMessage, worldMessage)
-
-	//printf
-	nombre := "Platzi"
-	cursos := 500
-	fmt.Printf("%s tiene más de %d cursos\n", nombre, cursos)
-
-	//sprintf
-	message := fmt.Sprintf("%s tiene más de %d cursos", nombre, cursos)
-	fmt.Println(message)
-
-	//tipo de variable
-	fmt.Printf("helloMessage: %T\n", helloMessage)
-	fmt.Printf("cursos: %T\n", cursos)
-
-	normalFunction("Hola desde funcion")
-	tripleArgument(1, 2, "hola")
-	fmt.Println(doubleValue(1))
-	value1, value2 := doubleReturn(2)
-	fmt.Println("Los valores retornados por la funcion doubleReturn son", value1, value2)
-
-}
-
-func tripleArgument(a, b int, c string) {
-	println(a, b, c)
-}
-
-func doubleValue(a int) int {
-	return a * 2
-}
-
-// cuando necesitemos que se retorne 2 o más valores
-func doubleReturn(a int) (b, d int) {
-	return a, a * 3
 }
